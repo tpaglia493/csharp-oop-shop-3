@@ -18,6 +18,10 @@ namespace csharp_oop_shop_3
         public BottleOfWater( string commercialName, string description, float price, float iva, Category categoryName, float bottleCapacity, float pH, string waterSource) 
                          :base(commercialName,  description,  price,  iva,  categoryName)
         {
+            if(pH < 6.5f ||pH > 9.5f)
+            {
+                throw new ArgumentException("Water must have a pH in a range of 6.5-9.5 to be drinkable", "pH");
+            }
             this.waterSource = waterSource;
             this.pH = pH;
             SetBottleCapacity(bottleCapacity);

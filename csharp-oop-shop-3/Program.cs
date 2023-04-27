@@ -1,5 +1,96 @@
 ﻿using csharp_oop_shop_3;
-//CATEGORIES
+Category beverage = new Category("Beverage", "something you drink");
+
+//List<BottleOfWater> waterBottles = new List<BottleOfWater>();
+BottleOfWater acquaLeteBigBottle;
+try {
+     acquaLeteBigBottle = new BottleOfWater("Acqua Lete", "Just a bit of sodium", 1.00f, 17.00f, beverage, 1.0f, 5.2f,"A source" ); 
+    //waterBottles.Add( acquaLeteBigBottle );
+}
+catch (ArgumentException ex) 
+{
+    Console.WriteLine(ex.Message);
+    Console.WriteLine("Please insert the correct pH value");
+    float pHCorrected = float.Parse(Console.ReadLine());
+   acquaLeteBigBottle = new BottleOfWater("Acqua Lete", "Just a bit of sodium", 1.00f, 17.00f, beverage, 1.0f, pHCorrected, "A source");
+   // waterBottles.Add(acquaLeteBigBottle);
+}
+/*
+ * for(int i = 0; i < waterBottles.Count; i++)
+{
+    BottleOfWater bottleOfWater= waterBottles[i];
+}
+
+Console.WriteLine(waterBottles[0].ToString());
+*/
+Console.WriteLine(acquaLeteBigBottle.ToString());
+
+//la bottiglia nasce chiusa
+
+//provo a riempire la bottiglia
+Console.WriteLine("Refill the bottle");
+acquaLeteBigBottle.refillBottle(1.5f);
+
+
+//chiedo se la bottiglia è aperta
+Console.WriteLine("Is the bottle open?");
+Console.WriteLine(acquaLeteBigBottle.GetBottleState());
+
+//apro la bottiglia
+Console.WriteLine("Open the bottle");
+acquaLeteBigBottle.openBottle();
+
+//tolgo un po' d'acqua
+Console.WriteLine("Remove some water");
+acquaLeteBigBottle.removeWaterFromBottle(1.0f);
+
+//chiudo la bottiglia
+Console.WriteLine("Close the bottle");
+acquaLeteBigBottle.closeBottle();
+
+//chiedo quanta acqua rimane
+Console.WriteLine($"There are now {acquaLeteBigBottle.RemainingWater} L of water in the bottle");
+
+//chiedo se la bottiglia è aperta
+Console.WriteLine("Is the bottle open?");
+Console.WriteLine(acquaLeteBigBottle.GetBottleState());
+
+//provo a riempire la bottiglia
+Console.WriteLine("Refill the bottle");
+acquaLeteBigBottle.refillBottle(1.5f);
+
+//chiedo quanta acqua rimane
+Console.WriteLine($"There are now {acquaLeteBigBottle.RemainingWater} L of water in the bottle");
+
+//apro la bottiglia
+Console.WriteLine("Open the bottle");
+acquaLeteBigBottle.openBottle();
+
+//apro la bottiglia
+Console.WriteLine("Open the bottle");
+acquaLeteBigBottle.openBottle();
+
+//provo a riempire la bottiglia
+Console.WriteLine("Refill the bottle");
+acquaLeteBigBottle.refillBottle(1.5f);
+
+//chiedo quanta acqua rimane
+Console.WriteLine($"There are now {acquaLeteBigBottle.RemainingWater} L of water in the bottle");
+
+
+//chiedo se la bottiglia è aperta
+Console.WriteLine("Is the bottle open?");
+Console.WriteLine(acquaLeteBigBottle.GetBottleState());
+
+//chiudo la bottiglia
+Console.WriteLine("Close the bottle");
+acquaLeteBigBottle.closeBottle();
+//chiedo se la bottiglia è aperta
+Console.WriteLine("Is the bottle open?");
+Console.WriteLine(acquaLeteBigBottle.GetBottleState());
+
+/*
+ * //CATEGORIES
         //Category dress = new Category("Dress", "Something you wear");
         //Category furniture = new Category("Furniture", "Basic furnitures for every house");
         //Category tool = new Category("Tool", "You can use it to do things");
@@ -8,13 +99,12 @@ Category food = new Category("Food", "Something you eat");
 Category beverage = new Category("Beverage", "something you drink");
 
 //GENERAL PRODUCTS 
-        //Product acquaLeteBottled = new Product("Acqua Lete", "It's a very good water", 1.00f, 15.00f, beverage);
-        //Product product2 = new Product("Chair", "It's a chair", 25.00f, 22.00f, furniture);
-        //Product product3 = new Product("Spoon", "It's a spoon", 2.00f, 22.00f, tool);
-        //Product product4 = new Product("Expensive dress", "It's an expensive dress", 900.00f, 22.00f, dress);
+//Product acquaLeteBottled = new Product("Acqua Lete", "It's a very good water", 1.00f, 15.00f, beverage);
+//Product product2 = new Product("Chair", "It's a chair", 25.00f, 22.00f, furniture);
+//Product product3 = new Product("Spoon", "It's a spoon", 2.00f, 22.00f, tool);
+//Product product4 = new Product("Expensive dress", "It's an expensive dress", 900.00f, 22.00f, dress);
 
 //SPECIFIC PRODUCTS
-BottleOfWater acquaLeteBigBottle = new BottleOfWater("Acqua Lete", "Just a bit of sodium", 1.00f, 17.00f, beverage, 1.0f, 7.2f,"A source" );
 BagOfFruits bagOfFragole = new BagOfFruits("Strawberry Bag", "A bag full of strawberries", food, "Strawberry", 4, 0.75f);
 //CREATING LIST OF PRODUCTS (INVENTORIES)
         //List<Product> inventoryBeverages = new List<Product>();
@@ -115,3 +205,4 @@ acquaLeteBigBottle.closeBottle();
     //chiedo se la bottiglia è aperta
 Console.WriteLine("Is the bottle open?");
 Console.WriteLine(acquaLeteBigBottle.GetBottleState());
+*/
