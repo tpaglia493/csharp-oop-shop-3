@@ -67,7 +67,7 @@ namespace csharp_oop_shop_3
         {
             if ( bottleCapacity < 0 || bottleCapacity>1.5)
             {
-                throw new ArgumentException("Bottle capacity must bu in a rang of 0,25L-1,5L", "bottleCapacity");
+                throw new ArgumentException("Bottle capacity must be in a range of 0,25L-1,5L", "bottleCapacity");
             }
             else { this.bottleCapacity = bottleCapacity; }
         }
@@ -75,7 +75,7 @@ namespace csharp_oop_shop_3
         {
             if (open) 
             {
-                Console.WriteLine("The bottle is already open");
+                throw new Exception("The bottle is already open");
             } 
             else 
             { 
@@ -88,7 +88,7 @@ namespace csharp_oop_shop_3
         {
             if (!open)
             {
-                Console.WriteLine("The bottle is already closed");
+                throw new Exception("The bottle is already closed");
             }
             else
             {
@@ -130,7 +130,7 @@ namespace csharp_oop_shop_3
         {
             if (remainingWater == bottleCapacity)
             {
-                Console.WriteLine("The bottle is already full"); 
+                throw new Exception("The bottle is already full"); 
             }
             else if (open)//REFILL ONLY IF OPEN
                 {
@@ -138,16 +138,17 @@ namespace csharp_oop_shop_3
                     {
                         if (remainingWater + amountToRefill > bottleCapacity)
                         {
-                            Console.WriteLine("You used too much water, but your bottle is full");
-                            remainingWater = bottleCapacity;
+                        remainingWater = bottleCapacity;
+                        throw new ArgumentException("You used too much water, but your bottle is full", "amountToRefill");
+                            
                         }else
                             {
                             remainingWater += amountToRefill;
                             }
                        
-                    }else { Console.WriteLine("Not much sense, can try .emptyBottle or .removeWaterFromBottle instead"); }
+                    }else { throw new Exception("Not much sense, can try .emptyBottle or .removeWaterFromBottle instead"); }
 
-            }else { Console.WriteLine("Should open the bottle first"); }
+            }else { throw new Exception("Should open the bottle first"); }
         }
             
 
@@ -155,16 +156,17 @@ namespace csharp_oop_shop_3
         {
             if (remainingWater == 0)
             {
-                Console.WriteLine("The bottle is already empty");
+                throw new Exception("The bottle is already empty");
             }
             else if (open)//REMOVE ONLY IF OPEN
             {
                 if (amountToRemove > 0)
                 {
                     if (remainingWater - amountToRemove < 0)
-                    {
-                        Console.WriteLine("There wasn't that much water, but your bottle is empty anyway");
+                    { 
                         remainingWater = 0;
+                        throw new ArgumentException("There wasn't that much water, but your bottle is empty anyway");
+                       
                     }
                     else
                     {
@@ -172,10 +174,10 @@ namespace csharp_oop_shop_3
                     }
 
                 }
-                else { Console.WriteLine("Not much sense, can try .refillBottle instead"); }
+                else { throw new Exception("Not much sense, can try .refillBottle instead"); }
 
             }
-            else { Console.WriteLine("Should open the bottle first"); }
+            else { throw new Exception("Should open the bottle first"); }
         }
         public void emptyBottle()
         {

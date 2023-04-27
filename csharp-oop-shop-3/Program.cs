@@ -2,12 +2,31 @@
 Category beverage = new Category("Beverage", "something you drink");
 
 
-  BottleOfWater acquaLeteBigBottle = new BottleOfWater("Acqua Lete", "Just a bit of sodium", 2.00f, 17.00f, beverage, 2.0f, 10.2f,"A source" ); 
+BottleOfWater acquaLeteBigBottle = new BottleOfWater("Acqua Lete", "Just a bit of sodium", 1.00f, 17.00f, beverage, 1.0f, 7.2f,"A source" ); 
 
 
 Console.WriteLine(acquaLeteBigBottle.ToString());
+try { 
+    //chiedo se la bottiglia è aperta
+    Console.WriteLine("Is the bottle open?");
+    Console.WriteLine(acquaLeteBigBottle.GetBottleState());
+    Console.WriteLine("I try to close the bottle");
+    acquaLeteBigBottle.closeBottle();
+    //apro la bottiglia
+    Console.WriteLine("Open the bottle");
+    acquaLeteBigBottle.openBottle();
 
+    //tolgo un po' d'acqua
+    Console.WriteLine("Remove some water");
+    acquaLeteBigBottle.removeWaterFromBottle(1.0f);
 
+    //chiudo la bottiglia
+    Console.WriteLine("Close the bottle");
+    acquaLeteBigBottle.closeBottle();
+}catch(Exception ex)
+{
+    Console.WriteLine(ex.ToString());
+}
 
 /*
  * //CATEGORIES
