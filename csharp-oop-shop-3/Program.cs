@@ -1,37 +1,6 @@
 ﻿using csharp_oop_shop_3;
-Category beverage = new Category("Beverage", "something you drink");
 
-
-BottleOfWater acquaLeteBigBottle = new BottleOfWater("Acqua Lete", "Just a bit of sodium", 1.00f, 17.00f, beverage, 1.0f, 7.2f,"A source" ); 
-
-
-Console.WriteLine(acquaLeteBigBottle.ToString());
-Console.WriteLine(acquaLeteBigBottle.remainingWaterInGallons());
-Console.WriteLine(BottleOfWater.litersToGallonsConverter(2f));
-try { 
-    //chiedo se la bottiglia è aperta
-    Console.WriteLine("Is the bottle open?");
-    Console.WriteLine(acquaLeteBigBottle.GetBottleState());
-    Console.WriteLine("I try to close the bottle");
-    acquaLeteBigBottle.closeBottle();
-    //apro la bottiglia
-    Console.WriteLine("Open the bottle");
-    acquaLeteBigBottle.openBottle();
-
-    //tolgo un po' d'acqua
-    Console.WriteLine("Remove some water");
-    acquaLeteBigBottle.removeWaterFromBottle(1.0f);
-
-    //chiudo la bottiglia
-    Console.WriteLine("Close the bottle");
-    acquaLeteBigBottle.closeBottle();
-}catch(Exception ex)
-{
-    Console.WriteLine(ex.ToString());
-}
-
-/*
- * //CATEGORIES
+ //CATEGORIES
         //Category dress = new Category("Dress", "Something you wear");
         //Category furniture = new Category("Furniture", "Basic furnitures for every house");
         //Category tool = new Category("Tool", "You can use it to do things");
@@ -46,12 +15,19 @@ Category beverage = new Category("Beverage", "something you drink");
 //Product product4 = new Product("Expensive dress", "It's an expensive dress", 900.00f, 22.00f, dress);
 
 //SPECIFIC PRODUCTS
+BottleOfWater acquaLeteBigBottle = new BottleOfWater("Acqua Lete", "Just a bit of sodium", 1.00f, 17.00f, beverage, 1.0f, 7.2f, "A source");
 BagOfFruits bagOfFragole = new BagOfFruits("Strawberry Bag", "A bag full of strawberries", food, "Strawberry", 4, 0.75f);
+
 //CREATING LIST OF PRODUCTS (INVENTORIES)
-        //List<Product> inventoryBeverages = new List<Product>();
-        //List<Product> inventoryFoods = new List<Product>();
-        //List<Product> inventoryTools = new List<Product>();
-        //List<Product> inventoryFurnitures = new List<Product>();
+//List<Product> inventoryBeverages = new List<Product>();
+//List<Product> inventoryFoods = new List<Product>();
+//List<Product> inventoryTools = new List<Product>();
+//List<Product> inventoryFurnitures = new List<Product>();
+
+//CARTS
+PhisicalShopCart firstCart = new PhisicalShopCart(15);
+PhisicalShopCart secondCart = new PhisicalShopCart(15);
+PhisicalShopCart thirdCart = new PhisicalShopCart(15);
 
 //SHOPS
 Shop test1 = new Shop("fake name", "fake city", "fake street", 1234);
@@ -63,6 +39,11 @@ test1.AddSingleProductToProducts(bagOfFragole);
 //CONCATENATE LIST TO SHOP LIST
 //.ConcatListToProducts(inventory);
 
+firstCart.AddProduct(bagOfFragole);
+firstCart.AddProduct(acquaLeteBigBottle);
+
+Console.WriteLine($"There are {PhisicalShopCart.GetNumberOfCarts()} carts now");
+
 
 //MAIN PROGRAM (TESTS)
 foreach (Product anyProduct  in test1.products)
@@ -73,15 +54,6 @@ foreach (Product anyProduct  in test1.products)
     Console.WriteLine(info);
 }
 
-Console.WriteLine(test1.ToString());
-Console.WriteLine(acquaLeteBigBottle.ToString());
-Console.WriteLine(acquaLeteBigBottle.GetCategory().ToString());
-Console.WriteLine(acquaLeteBigBottle.GetIvaPrice());
-acquaLeteBigBottle.Name = "New Name";
-Console.WriteLine(acquaLeteBigBottle.ToString());
-Console.WriteLine(acquaLeteBigBottle.Name);
-Console.WriteLine(acquaLeteBigBottle.Price);
-Console.WriteLine(acquaLeteBigBottle.getCode());
 
 //la bottiglia nasce chiusa
 
@@ -146,4 +118,3 @@ acquaLeteBigBottle.closeBottle();
     //chiedo se la bottiglia è aperta
 Console.WriteLine("Is the bottle open?");
 Console.WriteLine(acquaLeteBigBottle.GetBottleState());
-*/
