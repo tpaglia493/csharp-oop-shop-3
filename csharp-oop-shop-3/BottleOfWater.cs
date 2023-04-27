@@ -24,11 +24,20 @@ namespace csharp_oop_shop_3
             }
             this.waterSource = waterSource;
             this.pH = pH;
+            try 
+            { 
             SetBottleCapacity(bottleCapacity);
+            }catch(ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Please insert the correct value for capacity:");
+                float correctedBottleCapacity = float.Parse(Console.ReadLine());
+                SetBottleCapacity(correctedBottleCapacity);
+            }
             this.remainingWater = bottleCapacity;
             this.open = false;
 
-        }
+            }
 
         //STATES
         private bool open;
@@ -43,7 +52,7 @@ namespace csharp_oop_shop_3
         {
             if ( bottleCapacity < 0 || bottleCapacity>1.5)
             {
-                this.bottleCapacity = 1.5f;
+                throw new ArgumentException("Bottle capacity must bu in a rang of 0,25L-1,5L", "bottleCapacity");
             }
             else { this.bottleCapacity = bottleCapacity; }
         }

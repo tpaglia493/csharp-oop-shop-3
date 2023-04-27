@@ -1,11 +1,11 @@
 ﻿using csharp_oop_shop_3;
 Category beverage = new Category("Beverage", "something you drink");
 
-//List<BottleOfWater> waterBottles = new List<BottleOfWater>();
+
 BottleOfWater acquaLeteBigBottle;
 try {
-     acquaLeteBigBottle = new BottleOfWater("Acqua Lete", "Just a bit of sodium", 1.00f, 17.00f, beverage, 1.0f, 5.2f,"A source" ); 
-    //waterBottles.Add( acquaLeteBigBottle );
+     acquaLeteBigBottle = new BottleOfWater("Acqua Lete", "Just a bit of sodium", 2.00f, 17.00f, beverage, 2.0f, 7.2f,"A source" ); 
+
 }
 catch (ArgumentException ex) 
 {
@@ -13,81 +13,12 @@ catch (ArgumentException ex)
     Console.WriteLine("Please insert the correct pH value");
     float pHCorrected = float.Parse(Console.ReadLine());
    acquaLeteBigBottle = new BottleOfWater("Acqua Lete", "Just a bit of sodium", 1.00f, 17.00f, beverage, 1.0f, pHCorrected, "A source");
-   // waterBottles.Add(acquaLeteBigBottle);
-}
-/*
- * for(int i = 0; i < waterBottles.Count; i++)
-{
-    BottleOfWater bottleOfWater= waterBottles[i];
+  
 }
 
-Console.WriteLine(waterBottles[0].ToString());
-*/
 Console.WriteLine(acquaLeteBigBottle.ToString());
 
-//la bottiglia nasce chiusa
 
-//provo a riempire la bottiglia
-Console.WriteLine("Refill the bottle");
-acquaLeteBigBottle.refillBottle(1.5f);
-
-
-//chiedo se la bottiglia è aperta
-Console.WriteLine("Is the bottle open?");
-Console.WriteLine(acquaLeteBigBottle.GetBottleState());
-
-//apro la bottiglia
-Console.WriteLine("Open the bottle");
-acquaLeteBigBottle.openBottle();
-
-//tolgo un po' d'acqua
-Console.WriteLine("Remove some water");
-acquaLeteBigBottle.removeWaterFromBottle(1.0f);
-
-//chiudo la bottiglia
-Console.WriteLine("Close the bottle");
-acquaLeteBigBottle.closeBottle();
-
-//chiedo quanta acqua rimane
-Console.WriteLine($"There are now {acquaLeteBigBottle.RemainingWater} L of water in the bottle");
-
-//chiedo se la bottiglia è aperta
-Console.WriteLine("Is the bottle open?");
-Console.WriteLine(acquaLeteBigBottle.GetBottleState());
-
-//provo a riempire la bottiglia
-Console.WriteLine("Refill the bottle");
-acquaLeteBigBottle.refillBottle(1.5f);
-
-//chiedo quanta acqua rimane
-Console.WriteLine($"There are now {acquaLeteBigBottle.RemainingWater} L of water in the bottle");
-
-//apro la bottiglia
-Console.WriteLine("Open the bottle");
-acquaLeteBigBottle.openBottle();
-
-//apro la bottiglia
-Console.WriteLine("Open the bottle");
-acquaLeteBigBottle.openBottle();
-
-//provo a riempire la bottiglia
-Console.WriteLine("Refill the bottle");
-acquaLeteBigBottle.refillBottle(1.5f);
-
-//chiedo quanta acqua rimane
-Console.WriteLine($"There are now {acquaLeteBigBottle.RemainingWater} L of water in the bottle");
-
-
-//chiedo se la bottiglia è aperta
-Console.WriteLine("Is the bottle open?");
-Console.WriteLine(acquaLeteBigBottle.GetBottleState());
-
-//chiudo la bottiglia
-Console.WriteLine("Close the bottle");
-acquaLeteBigBottle.closeBottle();
-//chiedo se la bottiglia è aperta
-Console.WriteLine("Is the bottle open?");
-Console.WriteLine(acquaLeteBigBottle.GetBottleState());
 
 /*
  * //CATEGORIES
