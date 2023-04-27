@@ -2,19 +2,8 @@
 Category beverage = new Category("Beverage", "something you drink");
 
 
-BottleOfWater acquaLeteBigBottle;
-try {
-     acquaLeteBigBottle = new BottleOfWater("Acqua Lete", "Just a bit of sodium", 2.00f, 17.00f, beverage, 2.0f, 7.2f,"A source" ); 
+  BottleOfWater acquaLeteBigBottle = new BottleOfWater("Acqua Lete", "Just a bit of sodium", 2.00f, 17.00f, beverage, 2.0f, 10.2f,"A source" ); 
 
-}
-catch (ArgumentException ex) 
-{
-    Console.WriteLine(ex.Message);
-    Console.WriteLine("Please insert the correct pH value");
-    float pHCorrected = float.Parse(Console.ReadLine());
-   acquaLeteBigBottle = new BottleOfWater("Acqua Lete", "Just a bit of sodium", 1.00f, 17.00f, beverage, 1.0f, pHCorrected, "A source");
-  
-}
 
 Console.WriteLine(acquaLeteBigBottle.ToString());
 

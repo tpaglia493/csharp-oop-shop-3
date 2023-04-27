@@ -18,22 +18,29 @@ namespace csharp_oop_shop_3
         public BottleOfWater( string commercialName, string description, float price, float iva, Category categoryName, float bottleCapacity, float pH, string waterSource) 
                          :base(commercialName,  description,  price,  iva,  categoryName)
         {
-            if(pH < 6.5f ||pH > 9.5f)
-            {
-                throw new ArgumentException("Water must have a pH in a range of 6.5-9.5 to be drinkable", "pH");
-            }
             this.waterSource = waterSource;
-            this.pH = pH;
-            try 
-            { 
-            SetBottleCapacity(bottleCapacity);
-            }catch(ArgumentException ex)
+            try
+            {
+                SetpH(pH);
+            }
+            catch(ArgumentException ex) 
             {
                 Console.WriteLine(ex.Message);
-                Console.WriteLine("Please insert the correct value for capacity:");
-                float correctedBottleCapacity = float.Parse(Console.ReadLine());
-                SetBottleCapacity(correctedBottleCapacity);
+                Console.WriteLine("Please insert the correct value for pH:");
+                float correctedpH= float.Parse(Console.ReadLine());
+                SetpH(correctedpH);
             }
+            try 
+            { 
+                SetBottleCapacity(bottleCapacity);
+            }
+            catch(ArgumentException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    Console.WriteLine("Please insert the correct value for capacity:");
+                    float correctedBottleCapacity = float.Parse(Console.ReadLine());
+                    SetBottleCapacity(correctedBottleCapacity);
+                }
             this.remainingWater = bottleCapacity;
             this.open = false;
 
@@ -48,6 +55,14 @@ namespace csharp_oop_shop_3
         }
 
         //SETTERS 
+
+        public void SetpH(float pH)
+        {
+        if (pH < 6.5f || pH > 9.5f)
+            {
+            throw new ArgumentException("Water must have a pH in a range of 6.5-9.5 to be drinkable", "pH");
+            }
+        }
         public void  SetBottleCapacity( float bottleCapacity )
         {
             if ( bottleCapacity < 0 || bottleCapacity>1.5)
