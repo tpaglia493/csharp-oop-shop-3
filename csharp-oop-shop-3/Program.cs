@@ -46,6 +46,8 @@ Console.WriteLine($"There are {PhisicalShopCart.GetNumberOfCarts()} carts now");
 
 
 //MAIN PROGRAM (TESTS)
+
+try { 
 foreach (Product anyProduct  in test1.products)
 {
 
@@ -118,3 +120,10 @@ acquaLeteBigBottle.closeBottle();
     //chiedo se la bottiglia è aperta
 Console.WriteLine("Is the bottle open?");
 Console.WriteLine(acquaLeteBigBottle.GetBottleState());
+
+}
+catch(Exception ex)
+{
+    Console.WriteLine(ex.ToString());
+    Console.WriteLine("Please close the program and fix the problem");
+}
