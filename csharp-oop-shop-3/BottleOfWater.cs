@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,8 +9,10 @@ namespace csharp_oop_shop_3
 {
     public class BottleOfWater : Product
     {
+        //STATIC ATTRIBUTES
+      
+        public static readonly float litersToGallonConversionFactor = 3.785f;
         //ATTRIBUTES
-
         private float bottleCapacity;
         private float pH;
         private string waterSource;
@@ -49,7 +52,7 @@ namespace csharp_oop_shop_3
         //STATES
         private bool open;
         private float remainingWater;
-        public float RemainingWater
+        public  float RemainingWater
         {
             get { return this.remainingWater; }
         }
@@ -186,6 +189,18 @@ namespace csharp_oop_shop_3
                 remainingWater = 0;
             }
             else { Console.WriteLine("Should open the bottle first"); }
+        }
+
+        public float remainingWaterInGallons()
+        {
+            float amountOfWaterInGallons = remainingWater * litersToGallonConversionFactor;
+            return amountOfWaterInGallons;
+        }
+
+        public static float litersToGallonsConverter(float litersToConvert)
+        {
+            float amountOfWaterInGallons = litersToConvert * litersToGallonConversionFactor;
+            return amountOfWaterInGallons;
         }
     }
 }

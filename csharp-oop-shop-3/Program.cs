@@ -6,6 +6,8 @@ BottleOfWater acquaLeteBigBottle = new BottleOfWater("Acqua Lete", "Just a bit o
 
 
 Console.WriteLine(acquaLeteBigBottle.ToString());
+Console.WriteLine(acquaLeteBigBottle.remainingWaterInGallons());
+Console.WriteLine(BottleOfWater.litersToGallonsConverter(2f));
 try { 
     //chiedo se la bottiglia è aperta
     Console.WriteLine("Is the bottle open?");
